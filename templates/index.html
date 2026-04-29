@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <div class="dashboard-container">
         <header>
@@ -15,7 +17,7 @@
             <p>Monitor your non-essential expenses</p>
             <button id="reset-data-btn" class="btn-danger-outline" title="Delete all expenses">Reset Data</button>
         </header>
-        
+
         <!-- Top Row: Summary Cards -->
         <div class="summary-grid">
             <div class="summary-card glass-effect">
@@ -29,7 +31,7 @@
             <div class="summary-card glass-effect clickable-card" id="budget-card" title="Click to edit budget">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
                     <h3 style="margin-bottom: 0;">Remaining Budget</h3>
-                    <span style="opacity: 0.7; font-size: 0.8rem;">✏️ Edit</span>
+                    <span style="opacity: 0.7; font-size: 0.8rem;"> Edit</span>
                 </div>
                 <div class="amount" id="remaining-budget">₹0.00</div>
             </div>
@@ -71,10 +73,10 @@
     <div id="intervention-modal" class="modal-overlay hidden">
         <div class="modal-content glass-effect">
             <div class="modal-header">
-                <h2>⚠️ Action Required</h2>
+                <h2>Action Required</h2>
                 <p>A new unclassified transaction needs your attention.</p>
             </div>
-            
+
             <div class="transaction-details">
                 <div class="detail-row">
                     <span class="label">Amount:</span>
@@ -113,10 +115,12 @@
             <form id="budget-form">
                 <div class="form-group">
                     <label for="new-budget-input">Amount (₹):</label>
-                    <input type="number" id="new-budget-input" step="0.01" min="0" required style="width: 100%; padding: 1rem; background: rgba(15, 23, 42, 0.8); border: 1px solid var(--glass-border); border-radius: 0.5rem; color: white; font-size: 1rem; outline: none; font-family: 'Inter', sans-serif;">
+                    <input type="number" id="new-budget-input" step="0.01" min="0" required
+                        style="width: 100%; padding: 1rem; background: #f4f7f6; border: 1px solid #ccc; border-radius: 0.5rem; color: #333; font-size: 1rem; outline: none; font-family: sans-serif;">
                 </div>
                 <div style="display: flex; gap: 1rem;">
-                    <button type="button" class="btn-primary" id="cancel-budget-btn" style="background: transparent; border: 1px solid var(--text-secondary); color: var(--text-secondary);">Cancel</button>
+                    <button type="button" class="btn-primary" id="cancel-budget-btn"
+                        style="background: transparent; border: 1px solid var(--text-secondary); color: var(--text-secondary);">Cancel</button>
                     <button type="submit" class="btn-primary">Save</button>
                 </div>
             </form>
@@ -127,16 +131,19 @@
     <div id="reset-modal" class="modal-overlay hidden">
         <div class="modal-content glass-effect">
             <div class="modal-header">
-                <h2 style="color: #ef4444;">⚠️ Reset All Data?</h2>
+                <h2 style="color: #ef4444;"> Reset All Data?</h2>
                 <p>Are you sure you want to delete all expenses? This cannot be undone.</p>
             </div>
             <div style="display: flex; gap: 1rem; margin-top: 2rem;">
-                <button type="button" class="btn-primary" id="cancel-reset-btn" style="background: transparent; border: 1px solid var(--text-secondary); color: var(--text-secondary);">Cancel</button>
-                <button type="button" class="btn-primary" id="confirm-reset-btn" style="background: #ef4444;">Yes, Delete Everything</button>
+                <button type="button" class="btn-primary" id="cancel-reset-btn"
+                    style="background: transparent; border: 1px solid var(--text-secondary); color: var(--text-secondary);">Cancel</button>
+                <button type="button" class="btn-primary" id="confirm-reset-btn" style="background: #ef4444;">Yes,
+                    Delete Everything</button>
             </div>
         </div>
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
+
 </html>
